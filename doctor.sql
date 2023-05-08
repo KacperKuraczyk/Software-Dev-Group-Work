@@ -1,0 +1,41 @@
+CREATE TABLE doctors (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(32) NOT NULL,
+  email VARCHAR(50),
+  phone VARCHAR(20),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE appointments (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  doctor_id INT(6) UNSIGNED,
+  patient_name VARCHAR(50),
+  date DATE,
+  time TIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE patients (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  doctor_id INT(6) UNSIGNED,
+  name VARCHAR(50),
+  dob DATE,
+  phone VARCHAR(20),
+  email VARCHAR(50),
+  address VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE medical_records (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  patient_id INT(6) UNSIGNED,
+  date DATE,
+  time TIME,
+  symptoms TEXT,
+  diagnosis TEXT,
+  prescription TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
